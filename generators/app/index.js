@@ -4,53 +4,76 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 
 module.exports = yeoman.Base.extend({
-  initializing: function() {
+    constructor: function () {
+        yeoman.Base.apply(this, arguments);
+        this._yosay();
+    },
+    initializing: function () {
+        this.config.defaults({
+            appname: this.appname,
+            appid: "appid"
+        });
+        this.model = this.config.getAll();
+        this.composeWith('emet:about', {options: {
+                yosay: false
+            }});
+    },
+    prompting: function () {
+        var that = this;
+        var model = that.model;
+        var prompts = [
+            {type: 'input', name: 'appname', message: 'Your project name', default: model.appname},
+            {type: 'input', name: 'appid', message: 'Your project id', default: model.appid},
+            {type: 'confirm', name: 'execute', message: 'Confirm code generation?', default: false}];
 
-  },
-  prompting: function() {
-    this.log(yosay(
-      'Welcome to ' + chalk.red('Emet') + ' generator!'
-    ));
-    var prompts = [{
-      type: 'input',
-      name: 'appname',
-      message: 'Your project name',
-      default: this.appname
-    }, {
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
-
-    return this.prompt(prompts).then(function(props) {
-      this.props = props;
-    }.bind(this));
-  },
-
-  writing: function() {
-    this.fs.copyTpl(this.templatePath('_bower.json'), this.destinationPath('bower.json'), {
-      props: this.props
-    });
-    this.fs.copyTpl(this.templatePath('_config.xml'), this.destinationPath('config.xml'), {
-      props: this.props
-    });
-    this.fs.copyTpl(this.templatePath('_Gruntfile.js'), this.destinationPath('Gruntfile.js'), {
-      props: this.props
-    });
-    this.fs.copyTpl(this.templatePath('_ionic.config.json'), this.destinationPath('ionic.config.json'), {
-      props: this.props
-    });
-    this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), {
-      props: this.props
-    });
-  },
-
-  install: function() {
-    this.installDependencies();
-  },
-
-  end: function() {
-    yosay('Good bye');
-  }
+        return this.prompt(prompts).then(function (properties) {
+            if (!properties.execute) {
+                this.env.error("Code generation cancelled.");
+            } else {
+                delete properties.execute;
+            }
+            for (var key in properties) {
+                if (properties.hasOwnProperty(key)) {
+                    that.model[key] = properties[key];
+                }
+            }
+        }.bind(this));
+    },
+    writing: function () {
+        var model = this.model;
+        // Root
+        this._t('_bower.json', 'bower.json', model);
+        this._t('_config.xml', 'config.xml', model);
+        this._t('_Gruntfile.js', 'Gruntfile.js', model);
+        this._t('_ionic.config.json', 'ionic.config.json', model);
+        this._t('_package.json', 'package.json', model);
+        // Index
+        this._t('_index.html', 'app/index.html', model);
+        this._t('_index.js', 'app/modules/index.js', model);
+        // Resources
+        this._c('logo.png', 'app/resources/logo.png');
+        this._c('styles.css', 'app/resources/styles.css');
+    },
+    install: function () {
+        this.installDependencies();
+    },
+    end: function () {
+        this.config.set(this.model);
+        this.config.save();
+        yosay('Good bye');
+    },
+    _yosay: function () {
+        this.option('yosay', {type: Boolean, default: true});
+        if (this.options.yosay) {
+            this.log(yosay(
+                    'Welcome to ' + chalk.red('Emet') + ' generator!'
+                    ));
+        }
+    },
+    _t: function (source, destiny, model) {
+        this.fs.copyTpl(this.templatePath(source), this.destinationPath(destiny), model);
+    },
+    _c: function (source, destiny, model) {
+        this.fs.copy(this.templatePath(source), this.destinationPath(destiny), model);
+    }
 });

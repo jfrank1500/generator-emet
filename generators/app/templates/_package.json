@@ -1,7 +1,7 @@
 {
-  "name": "<%= props.appname %>",
+  "name": "<%= appname %>",
   "version": "1.0.0",
-  "description": "<%= props.appname %>",
+  "description": "<%= appname %>",
   "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.5",

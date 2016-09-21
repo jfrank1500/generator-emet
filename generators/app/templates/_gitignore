@@ -1,0 +1,8 @@
+.sass-cache/
+node_modules/
+platforms/
+plugins/
+/www/lib/
+/nbproject/private/
+/bower_components/
+/www/

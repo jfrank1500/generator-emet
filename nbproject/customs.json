@@ -1,0 +1,20 @@
+{
+    "elements": {
+        "ion-side-menus": {},
+        "ion-side-menu": {},
+        "ion-nav-view": {},
+        "ion-list": {},
+        "ion-header-bar": {},
+        "ion-item": {},
+        "ion-nav-buttons": {},
+        "ion-content": {},
+        "ion-nav-bar": {},
+        "ion-side-menu-content": {},
+        "ion-view": {}
+    },
+    "attributes": {
+        "menu-toggle": {
+            "context": "button"
+        }
+    }
+}

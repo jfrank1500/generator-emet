@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.jus.trern.sessoes" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name><%= props.appname %></name>
-  <description><%= props.appname %></description>
+<widget id="<%= appid %>" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name><%= appname %></name>
+  <description><%= appname %></description>
   <author email="spe@tre-rn.jus.br" href="http://www.tre-rn.jus.br/">Tribunal Regional Eleitoral do RN</author>
   <content src="index.html"/>
   <access origin="*"/>
