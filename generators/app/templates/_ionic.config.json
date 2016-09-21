@@ -1,0 +1,4 @@
+{
+  "name": "<%= props.appname %>",
+  "app_id": ""
+}
