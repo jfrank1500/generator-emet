@@ -1,6 +1,8 @@
 {
   "name": "<%= appname %>",
   "version": "1.0.0",
+  "license": "MIT",
+  "repository": "nobody/<%= appname %>",
   "description": "<%= appname %>",
   "dependencies": {},
   "devDependencies": {

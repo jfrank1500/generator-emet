@@ -6,7 +6,7 @@ var yosay = require('yosay');
 module.exports = yeoman.Base.extend({
     constructor: function () {
         yeoman.Base.apply(this, arguments);
-        this._yosay();
+        this._welcome();
     },
     initializing: function () {
         this.config.defaults({
@@ -15,7 +15,7 @@ module.exports = yeoman.Base.extend({
         });
         this.model = this.config.getAll();
         this.composeWith('emet:about', {options: {
-                yosay: false
+                welcome: false
             }});
     },
     prompting: function () {
@@ -62,9 +62,12 @@ module.exports = yeoman.Base.extend({
         this.config.save();
         yosay('Good bye');
     },
-    _yosay: function () {
-        this.option('yosay', {type: Boolean, default: true});
-        if (this.options.yosay) {
+    _welcome: function () {
+        this.option('welcome', {
+            type: Boolean,
+            default: true,
+            desc: "Display welcome message"});
+        if (this.options.welcome) {
             this.log(yosay(
                     'Welcome to ' + chalk.red('Emet') + ' generator!'
                     ));

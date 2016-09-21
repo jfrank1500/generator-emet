@@ -6,7 +6,7 @@ var yosay = require('yosay');
 module.exports = yeoman.Base.extend({
     constructor: function () {
         yeoman.Base.apply(this, arguments);
-        this._yosay();
+        this._welcome();
     },
     initializing: function () {
         this.model = this.config.getAll();
@@ -18,9 +18,12 @@ module.exports = yeoman.Base.extend({
         this._t('_about.module.js', 'app/modules/about/about.module.js', model);
         this._t('_about.route.js', 'app/modules/about/about.route.js', model);
     },
-    _yosay: function () {
-        this.option('yosay', {type: Boolean, default: true});
-        if (this.options.yosay) {
+    _welcome: function () {
+        this.option('welcome', {
+            type: Boolean,
+            default: true,
+            desc: "Display welcome message"});
+        if (this.options.welcome) {
             this.log(yosay(
                     'Welcome to ' + chalk.red('Emet') + ':about subgenerator!'
                     ));
