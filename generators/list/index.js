@@ -7,7 +7,9 @@ var _ = require('lodash');
 module.exports = yeoman.Base.extend({
     constructor: function () {
         yeoman.Base.apply(this, arguments);
-        this.argument('module', {type: String, required: true});
+        this.argument('module', {
+            type: String, required: true
+        });
         this.moduleName = _.camelCase(this.module);
         this._yosay();
     },
@@ -18,15 +20,15 @@ module.exports = yeoman.Base.extend({
     writing: function () {
         var model = this.model;
         var path = 'app/modules/' + this.module + '/' + this.module;
-        this._t('_video.controller.js', path + '.controller.js', model);
-        this._t('_video.html', path + '.html', model);
-        this._t('_video.route.js', path + '.route.js', model);
+        this._t('_list.controller.js', path + '.controller.js', model);
+        this._t('_list.html', path + '.html', model);
+        this._t('_list.route.js', path + '.route.js', model);
     },
     _yosay: function () {
         this.option('welcome', {type: Boolean, default: true});
         if (this.options.welcome) {
             this.log(yosay(
-                    'Welcome to ' + chalk.red('Emet') + ':about subgenerator!'
+                    'Welcome to ' + chalk.red('Emet') + ':list subgenerator!'
                     ));
         }
     },

@@ -7,6 +7,6 @@
             controller: 'AboutController'
         });
     };
-    angular.module('app.about').config(f);
+    angular.module('app.routes').config(f);
     f.$inject = ['$stateProvider'];
 })();

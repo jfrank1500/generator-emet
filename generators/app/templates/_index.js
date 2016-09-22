@@ -1,16 +1,19 @@
 /* global cordova */
 (function () {
     'use strict';
-    angular.module('app.directives', []);
-    angular.module('app.filters', []);
+
+    var DEFAULT_ROUTE = '/about';
+
     var app = angular.module('app', [
         'ionic',
-        'app.about',
+        'app.controllers',
+        'app.routes',
         'app.directives',
-        'app.filters']);
+        'app.filters'
+    ]);
 
     var f = function ($urlRouterProvider) {
-        $urlRouterProvider.otherwise('/about');
+        $urlRouterProvider.otherwise(DEFAULT_ROUTE);
     };
     app.config(f);
 
@@ -37,11 +40,4 @@
             });
         }]);
 
-    var g = function ($sce) {
-        return function (url) {
-            return $sce.trustAsResourceUrl(url);
-        };
-    };
-    angular.module('app.filters').filter('trustURL', g);
-    g.$inject = ['$sce'];
 })();

@@ -1,6 +1,3 @@
 Description:
-    Creates a default application
+    Creates an about page
 
-Subgenerators:
-    about   # generate about page
-    video   # generate video page

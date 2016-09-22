@@ -28,16 +28,15 @@
                         <div class="title">{{app}}</div>
                     </ion-header-bar>
                     <ion-content padding="false" class="side-menu-left has-header ">
-                        <ion-list id="habilidades-list1" data-componentid="list1"> 
+                        <ion-list id="main-menu-list" data-componentid="list1"> 
+                            <ion-item class="item-icon-left" 
+                                      id="id4" ui-sref="samplelist" menu-close="" 
+                                      data-componentid="idMenuSampleList"
+                                      ><i class="icon fa-list red fa fa-2x"></i>Sample list</ion-item>
                             <ion-item class="item-icon-left" 
                                       id="id5" ui-sref="about" menu-close="" 
-                                      data-componentid="id5"
+                                      data-componentid="idMenuAbout"
                                       ><i class="icon fa-book fa fa-2x"></i>About</ion-item>                     
-                            <ion-item class="item-icon-left" 
-                                      id="id4" ui-sref="autenticacao" menu-close="" 
-                                      data-componentid="id4"
-                                      ng-if="about"
-                                      ><i class="icon fa-sign-out red fa fa-2x"></i>Quit</ion-item>
                         </ion-list>
                     </ion-content>
                 </ion-side-menu>

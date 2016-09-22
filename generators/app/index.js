@@ -14,9 +14,16 @@ module.exports = yeoman.Base.extend({
             appid: "appid"
         });
         this.model = this.config.getAll();
-        this.composeWith('emet:about', {options: {
+        this.composeWith('emet:about', {
+            options: {
                 welcome: false
             }});
+        this.composeWith('emet:list', {
+            options: {
+                welcome: false
+            }, args: [
+                "samplelist"
+            ]});
     },
     prompting: function () {
         var that = this;
@@ -50,6 +57,8 @@ module.exports = yeoman.Base.extend({
         // Index
         this._t('_index.html', 'app/index.html', model);
         this._t('_index.js', 'app/modules/index.js', model);
+        this._t('_basic.filter.js', 'app/modules/filters/basic.filter.js', model);
+        this._t('_basic.module.js', 'app/modules/basic.module.js', model);
         // Resources
         this._c('logo.png', 'app/resources/logo.png');
         this._c('styles.css', 'app/resources/styles.css');
