@@ -1,0 +1,26 @@
+<ion-view title="{{app}}" id="pageLogin">
+    <ion-content padding="true" class="has-header">
+        <form id="videosLogin-form2" class="list">
+            <div>
+                <img src="resources/logo.png" 
+                     height="auto" 
+                     style="display: block; margin-left: auto; margin-right: auto;">
+            </div>
+            <ion-list id="idLogin">
+                <label class="item item-input">
+                    <span class="input-label">E-mail</span>
+                    <input type="text" placeholder="Your e-mail" ng-model="user.email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="Your password" ng-model="user.password">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 30px;"></div>
+            <a 
+               id="videosLogin-button1"
+               ng-click="login()"
+               class="button button-stable button-block"><i class="fa fa-unlock"></i> Login</a>
+        </form>
+    </ion-content>
+</ion-view>
