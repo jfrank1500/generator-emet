@@ -5,8 +5,8 @@
     angular.module('app.filters', []);
     var app = angular.module('app', [
         'ionic',
-        'app.about', 
-        'app.directives', 
+        'app.about',
+        'app.directives',
         'app.filters']);
 
     var f = function ($urlRouterProvider) {
@@ -31,9 +31,17 @@
                     event.preventDefault();
                     if (true) {
                         navigator.app.exitApp();
-                    } else {                        
+                    } else {
                     }
                 }, 100);
             });
         }]);
+
+    var g = function ($sce) {
+        return function (url) {
+            return $sce.trustAsResourceUrl(url);
+        };
+    };
+    angular.module('app.filters').filter('trustURL', g);
+    g.$inject = ['$sce'];
 })();
