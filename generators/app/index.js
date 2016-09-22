@@ -22,7 +22,13 @@ module.exports = yeoman.Base.extend({
             options: {
                 welcome: false
             }, args: [
-                "samplelist"
+                "posts"
+            ]});
+        this.composeWith('emet:form', {
+            options: {
+                welcome: false
+            }, args: [
+                "post"
             ]});
     },
     prompting: function () {

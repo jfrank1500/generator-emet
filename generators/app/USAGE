@@ -2,5 +2,7 @@ Description:
     Creates a default application
 
 Subgenerators:
-    about   # generate about page
-    video   # generate video page
+    about   # create an about page
+    list    # create a list page
+    login   # create a login page
+    video   # create a video page

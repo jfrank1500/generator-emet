@@ -10,11 +10,13 @@
         "ion-content": {},
         "ion-nav-bar": {},
         "ion-side-menu-content": {},
-        "ion-view": {}
+        "ion-view": {},
+        "ion-checkbox": {}
     },
     "attributes": {
         "menu-toggle": {
             "context": "button"
-        }
+        },
+        "id": {}
     }
 }
