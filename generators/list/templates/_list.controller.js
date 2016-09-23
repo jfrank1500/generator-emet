@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var f = function ($scope, $stateParams /* , $ionicLoading, serviceService */) {
+    var f = function ($scope, $stateParams /* , $ionicLoading, postResource */) {
         $scope.list = [
             {
                 "userId": 1,
@@ -30,12 +30,12 @@
         //   maxWidth: 200,
         //   showDelay: 0
         // });
-        // var list = serviceService.query(function () {
+        // var list = postResource.query(function () {
         //   $scope.list = list;
         //   $ionicLoading.hide();
         // });
     };
 
     angular.module('app.controllers').controller('<%= moduleName %>Controller', f);
-    f.$inject = ['$scope', '$stateParams' /* , '$ionicLoading', 'serviceService' */];
+    f.$inject = ['$scope', '$stateParams' /* , '$ionicLoading', 'postResource' */];
 })();

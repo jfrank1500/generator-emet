@@ -16,7 +16,7 @@
 //            maxWidth: 200,
 //            showDelay: 0
 //        });
-//        var post = postResource.get({id: id: $stateParams.id }, function () {
+//        var post = postResource.get({id: $stateParams.id }, function () {
 //            $scope.post = post;
 //            $ionicLoading.hide();
 //        });
