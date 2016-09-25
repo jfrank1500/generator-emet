@@ -1,0 +1,9 @@
+<ion-view title="<%= moduleName %>" cache-view="false">
+    <ion-content padding="true" class="has-header">
+        <ion-list id="id<%= moduleName %>">
+            <ion-item class="item-icon-left" ng-repeat="item in list" ui-sref="post({id: {{item.id}}})">
+                <i class="icon fa fa-truck"></i>{{item.title}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
