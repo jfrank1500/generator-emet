@@ -1,12 +1,12 @@
 {
   "name": "generator-emet",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "code generation for ionic",
   "homepage": "",
   "author": {
     "name": "Frank",
     "email": "jfrank1500@gmail.com",
-    "url": ""
+    "url": "https://www.npmjs.com/~jfrank"
   },
   "files": [
     "generators"
